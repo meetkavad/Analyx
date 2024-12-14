@@ -12,7 +12,7 @@ def preprocessor(data) :
         dates[idx] = dates[idx].replace('\u202f' , ' ')
     
     # converting dates to datetime format :
-    dates = pd.to_datetime(dates , format = '%d/%m/%y, %I:%M %p - ')
+    dates = pd.to_datetime(dates , format = '%d/%m/%Y, %I:%M %p - ', dayfirst=True)
     df = pd.DataFrame({'dates' : dates , 'messages' : messages})
 
     # getting users from messages : 

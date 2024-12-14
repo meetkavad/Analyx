@@ -2,6 +2,7 @@ from urlextract import URLExtract
 from wordcloud import WordCloud
 from collections import Counter 
 import pandas as pd
+import emoji 
 
 extract = URLExtract()
 
@@ -68,7 +69,7 @@ def fetch_busy_users(df) :
 # get meaningful chat words : 
 def meaningful_chat_words(df) :
 
-    f = open('./stop_hinglish.txt' , 'r' , encoding= 'utf-8')
+    f = open('../stop_hinglish.txt' , 'r' , encoding= 'utf-8')
     stop_words = f.read()
 
     words = [] 
@@ -81,6 +82,7 @@ def meaningful_chat_words(df) :
 # creating wordcloud :
 
 def create_wordcloud(user , df) : 
+    
 
     if user != "Overall" : 
         df = df[df['users'] == user]

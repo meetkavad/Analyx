@@ -69,7 +69,7 @@ def fetch_busy_users(df) :
 # get meaningful chat words : 
 def meaningful_chat_words(df) :
 
-    f = open('../stop_hinglish.txt' , 'r' , encoding= 'utf-8')
+    f = open('stop_hinglish.txt' , 'r' , encoding= 'utf-8')
     stop_words = f.read()
 
     words = [] 

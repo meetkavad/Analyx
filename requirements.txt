@@ -12,6 +12,7 @@ assemblyai==0.17.0
 asttokens==2.2.1
 async-lru==2.0.4
 async-timeout==4.0.2
+asyncio==3.4.3
 attrs==23.2.0
 Babel==2.12.1
 backcall==0.2.0
@@ -46,7 +47,8 @@ debugpy==1.6.7
 decorator==4.4.2
 defusedxml==0.7.1
 dill==0.3.7
-distlib==0.3.8set
+distlib==0.3.8
+disutils==1.4.32.post2
 Django==5.0.6
 django-filter==24.2
 django-redis==5.4.0
@@ -248,5 +250,3 @@ xgboost==2.0.3
 xyzservices==2023.7.0
 yarl==1.9.2
 zipp==3.16.2
-setuptools
-distutils

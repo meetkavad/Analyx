@@ -2,7 +2,6 @@ from urlextract import URLExtract
 from wordcloud import WordCloud
 from collections import Counter 
 import pandas as pd
-import emoji 
 
 extract = URLExtract()
 

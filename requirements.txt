@@ -248,3 +248,4 @@ xgboost==2.0.3
 xyzservices==2023.7.0
 yarl==1.9.2
 zipp==3.16.2
+setuptools

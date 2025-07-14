@@ -1,19 +1,38 @@
 import re
 import pandas as pd 
 
-def preprocessor(data) : 
+def preprocessor(data):
     # pattern for date-time extraction from chat : 
-    pattern  = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s[ap]m\s-\s'
-    messages = re.split(pattern , data)[1:]
-    dates = re.findall(pattern , data)
+    pattern_12hr = r'\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s[ap]m\s-\s'
+    pattern_24hr = r'\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s'
+
+    messages = re.split(pattern_12hr, data)[1:]
+    dates = re.findall(pattern_12hr, data)
+
+    if not dates:
+        messages = re.split(pattern_24hr, data)[1:]
+        dates = re.findall(pattern_24hr, data)
 
     # removing '\u202f' from dates : 
-    for idx , i in enumerate(dates) : 
-        dates[idx] = dates[idx].replace('\u202f' , ' ')
-    
+    for idx, i in enumerate(dates): 
+        dates[idx] = dates[idx].replace('\u202f', ' ')
+
     # converting dates to datetime format :
-    dates = pd.to_datetime(dates , format = '%d/%m/%Y, %I:%M %p - ')
-    df = pd.DataFrame({'dates' : dates , 'messages' : messages})
+
+   # removing '\u202f' from dates : 
+    for idx, i in enumerate(dates): 
+        dates[idx] = dates[idx].replace('\u202f', ' ')
+
+    # converting dates to datetime format:
+    try:
+        dates = pd.to_datetime(dates, format='%d/%m/%Y, %I:%M %p - ', dayfirst=True)
+    except ValueError:
+        try:
+            dates = pd.to_datetime(dates, format='%d/%m/%y, %I:%M %p - ', dayfirst=True)
+        except ValueError:
+            dates = pd.to_datetime(dates, format='%d/%m/%Y, %H:%M - ', dayfirst=True)
+
+    df = pd.DataFrame({'dates': dates, 'messages': messages})
 
     # getting users from messages : 
     users = []

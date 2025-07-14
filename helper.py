@@ -116,7 +116,6 @@ def monthly_timeline(user , df) :
     for i in range(monthly_timeline_df.shape[0]) : 
         months.append(monthly_timeline_df['month'][i] + ' ' + str(monthly_timeline_df['year'][i]))
     
-    
     monthly_timeline_df['time'] = months
     return monthly_timeline_df
 

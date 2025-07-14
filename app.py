@@ -6,13 +6,17 @@ import seaborn as sns
 st.sidebar.title("Analyx\n WhatsApp Chat Analyzer")
 
 file = st.sidebar.file_uploader("choose a chat File" , type = ['txt'])
+
 if file is not None : 
     bytes_data = file.getvalue()
     data = bytes_data.decode('utf-8')
+    # print(data)
     df = preprocessor.preprocessor(data)
     
     user_list = df['users'].unique().tolist()
-    user_list.remove("group_notification")
+    
+    if "group_notification" in user_list:
+        user_list.remove("group_notification")
     user_list.sort()
     user_list.insert(0 , "Overall")
 
@@ -89,7 +93,7 @@ if file is not None :
         daily_timeline_df = helper.daily_timeline(user , df)
         fig , ax = plt.subplots()
 
-        ax.scatter(daily_timeline_df['date_only'] , daily_timeline_df['messages'] , color="red")
+        ax.plot(daily_timeline_df['date_only'] , daily_timeline_df['messages'] , color="red")
         plt.xticks(rotation = 90)
         st.pyplot(fig)
 

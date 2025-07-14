@@ -1,15 +1,31 @@
-# Analyx : Whatsapp Chat Analyzer App
+# Analyx: WhatsApp Chat Analyzer App
 
-## dependencies used in this app : 
-1. pandas
-2. streamlit
-3. wordcloud 
-4. urlextract
-5. seaborn
-6. matplotlib
+Analyx is a simple web-based app that provides insightful analysis of your WhatsApp group chats.
 
-## follow the process to use the Analyx : 
-1. having access to the code , run the command in the terminal : streamlit run app.py
-2. get your what'sapp chat , using "export chat" option by clicking on three dots on top right corner of a chat in whatsapp.
-3. upload that file(.txt) in the upload chat file section and you have your chat analysis.
-4. Explore and know how a particular user has contributed to the group. 
+---
+
+## 📦 Dependencies Used
+- pandas  
+- streamlit  
+- wordcloud  
+- urlextract  
+- seaborn  
+- matplotlib  
+
+---
+
+## 🚀 How to Use the Online App
+
+1. **Go to the live app**: [Click here to open Analyx](https://meetkavad-analyx-app-zujrpl.streamlit.app/)  
+  
+2. **Export your WhatsApp chat**:
+   - Open any group or personal chat on WhatsApp
+   - Tap the **three dots** (menu) > **More** > **Export chat**
+   - Choose **"Without media"** , download the zip file and extract the `.txt` file.
+
+3. **Upload the exported file** to the app using the **"Upload Chat File"** section.
+
+4. **Explore insights**:
+   - Track individual contributions
+   - Analyze message volume, emojis, links, activity by day/hour, and more!
+
